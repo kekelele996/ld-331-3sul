@@ -6,6 +6,8 @@ export interface ScheduleItem {
   shift: string;
   holiday: boolean;
   color: string;
+  manual: boolean;
+  overLimit: boolean;
 }
 
 export interface ConflictAlert {
@@ -33,10 +35,21 @@ export interface WorkStats {
   overtimeHours: number;
 }
 
+export interface AdjustmentRecord {
+  id: number;
+  date: string;
+  staffName: string;
+  oldShift: string;
+  newShift: string;
+  operator: string;
+  adjustedAt: string;
+}
+
 export interface DashboardData {
   rules: string[];
   schedule: ScheduleItem[];
   conflicts: ConflictAlert[];
   requests: ShiftRequest[];
   stats: WorkStats[];
+  adjustments: AdjustmentRecord[];
 }
