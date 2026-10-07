@@ -64,6 +64,151 @@ body {
   justify-content: space-between;
 }
 
+.policy-alert {
+  margin-bottom: 12px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* —— 排班矩阵 —— */
+.schedule-matrix {
+  display: grid;
+  grid-template-columns: 110px repeat(14, minmax(64px, 1fr));
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.matrix-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 4px;
+  font-size: 13px;
+  color: #4b5b70;
+}
+
+.matrix-header.corner {
+  justify-content: center;
+  font-weight: 600;
+}
+
+.date-head small {
+  color: #93a1b2;
+}
+
+.date-head.holiday span {
+  color: #f56c6c;
+  font-weight: 600;
+}
+
+.matrix-row-head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6px;
+  background: #eef3fa;
+  border-radius: 4px;
+}
+
+.matrix-row-head small {
+  color: #93a1b2;
+}
+
+.shift-cell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 4px;
+  border-left: 4px solid #409eff;
+  border-radius: 4px;
+  background: #f9fbfe;
+  cursor: pointer;
+  font-size: 13px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.shift-cell:hover {
+  box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.cell-adjusted {
+  background: #fff7e6;
+}
+
+.cell-night-day {
+  outline: 2px solid #e6a23c;
+  outline-offset: -2px;
+}
+
+.cell-streak {
+  outline: 2px solid #f56c6c;
+  outline-offset: -2px;
+}
+
+.adjusted-mark,
+.conflict-mark {
+  position: absolute;
+  top: 1px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  line-height: 14px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.adjusted-mark {
+  right: 1px;
+  background: #e6a23c;
+}
+
+.conflict-mark {
+  left: 1px;
+  background: #f56c6c;
+}
+
+.adjust-dialog .adjust-target {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.adjust-dialog .adjust-old {
+  margin: 0 0 12px;
+  color: #66768a;
+  font-size: 13px;
+}
+
+.shift-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.adjust-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding-left: 4px;
+}
+
+.adjust-list small {
+  color: #93a1b2;
+}
+
+@media (max-width: 1200px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
